@@ -1,0 +1,26 @@
+<project name="plugin cleanup and publish" default="cleanup">
+
+	<target name="cleanup">
+		<delete>
+			<dirset dir="c:\eclipse_33_rcp\plugins\" includes="org.mxunit*/**" />
+			<dirset dir="c:\eclipse_33_rcp\features\" includes="org.mxunit*/**" />
+			<fileset dir="C:\Inetpub\wwwroot\mxunitupdatesite\" includes="plugins/**,features/**" casesensitive="no" />
+			<fileset dir="C:\Inetpub\wwwroot\mxunitupdatesite\" includes="plugins/**,features/**" casesensitive="no" />
+		</delete>
+	</target>
+
+
+	<target name="SendToUpdateSite">
+		<property name="unames.file" value="../mxunit/buildprops/unames.properties" />
+		<property file="${unames.file}" />
+		<ftp server="${ftp.site}" userid="${ftp.username}" password="${ftp.password}" remotedir="update">
+			<fileset dir=".">
+				<include name="site.xml" />
+				<include name="features/*.jar" />
+				<include name="plugins/*.jar" />
+			</fileset>
+		</ftp>
+	</target>
+
+
+</project>
