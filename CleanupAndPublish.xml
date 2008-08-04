@@ -1,9 +1,11 @@
 <project name="plugin cleanup and publish" default="cleanup">
 
+	
+	<property name="ehome" value="c:\Program Files (X86)\eclipse_33_rcp"/>
 	<target name="cleanup">
 		<delete>
-			<dirset dir="c:\eclipse_33_rcp\plugins\" includes="org.mxunit*/**" />
-			<dirset dir="c:\eclipse_33_rcp\features\" includes="org.mxunit*/**" />
+			<dirset dir="${ehome}\plugins\" includes="org.mxunit**/**" />
+			<dirset dir="${ehome}\features\" includes="org.mxunit**/**" />
 			<fileset dir="C:\Inetpub\wwwroot\mxunitupdatesite\" includes="plugins/**,features/**" casesensitive="no" />
 			<fileset dir="C:\Inetpub\wwwroot\mxunitupdatesite\" includes="plugins/**,features/**" casesensitive="no" />
 		</delete>
