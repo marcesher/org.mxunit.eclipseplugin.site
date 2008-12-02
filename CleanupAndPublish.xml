@@ -15,7 +15,7 @@
 	<target name="SendToUpdateSite">
 		<property name="unames.file" value="../mxunit/buildprops/unames.properties" />
 		<property file="${unames.file}" />
-		<ftp server="${ftp.site}" userid="${ftp.username}" password="${ftp.password}" remotedir="update">
+		<ftp server="${ftp.site}" userid="${ftp.username}" password="${ftp.password}" remotedir="update" >
 			<fileset dir=".">
 				<include name="site.xml" />
 				<include name="features/*.jar" />
