@@ -1,11 +1,8 @@
 <project name="plugin cleanup and publish" default="cleanup">
 
-	
-	<property name="ehome" value="c:\Program Files (X86)\eclipse_33_rcp"/>
+
 	<target name="cleanup">
 		<delete>
-			<dirset dir="${ehome}\plugins\" includes="org.mxunit**/**" />
-			<dirset dir="${ehome}\features\" includes="org.mxunit**/**" />
 			<fileset dir="C:\Inetpub\wwwroot\mxunitupdatesite\" includes="plugins/**,features/**" casesensitive="no" />
 			<fileset dir="C:\Inetpub\wwwroot\mxunitupdatesite\" includes="plugins/**,features/**" casesensitive="no" />
 		</delete>
@@ -15,7 +12,19 @@
 	<target name="SendToUpdateSite">
 		<property name="unames.file" value="../mxunit/buildprops/unames.properties" />
 		<property file="${unames.file}" />
-		<ftp server="${ftp.site}" userid="${ftp.username}" password="${ftp.password}" remotedir="update" >
+		<ftp server="${ftp.site}" userid="${ftp.username}" password="${ftp.password}" remotedir="update" verbose="true" >
+			<fileset dir=".">
+				<include name="site.xml" />
+				<include name="features/*.jar" />
+				<include name="plugins/*.jar" />
+			</fileset>
+		</ftp>
+	</target>
+	
+	<target name="SendToUpdate33Site">
+		<property name="unames.file" value="../mxunit/buildprops/unames.properties" />
+		<property file="${unames.file}" />
+		<ftp server="${ftp.site}" userid="${ftp.username}" password="${ftp.password}" remotedir="update33" verbose="true" >
 			<fileset dir=".">
 				<include name="site.xml" />
 				<include name="features/*.jar" />
