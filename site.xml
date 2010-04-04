@@ -3,7 +3,10 @@
    <description url="http://mxunit.org/update">
       Eclipse Plugin for MXUnit Unit Testing Framework for ColdFusion.
    </description>
-   <feature url="features/org.mxunit.eclipseplugin.feature_1.2.0.200912271603.jar" id="org.mxunit.eclipseplugin.feature" version="1.2.0.200912271603">
+   <feature url="features/org.mxunit.eclipseplugin.feature_1.2.0.201001051839.jar" id="org.mxunit.eclipseplugin.feature" version="1.2.0.201001051839">
+      <category name="MXUnit"/>
+   </feature>
+   <feature url="features/org.mxunit.eclipseplugin.feature_1.3.0.201004040605.jar" id="org.mxunit.eclipseplugin.feature" version="1.3.0.201004040605">
       <category name="Experimental"/>
    </feature>
    <category-def name="MXUnit" label="MXUnit Releases">
