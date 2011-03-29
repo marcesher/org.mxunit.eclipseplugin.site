@@ -12,19 +12,26 @@
 	<target name="SendToUpdateSite">
 		<property name="unames.file" value="../mxunit/buildprops/unames.properties" />
 		<property file="${unames.file}" />
-		<ftp server="${ftp.site}" userid="${ftp.username}" password="${ftp.password}" remotedir="update" verbose="true" >
+
+		<tstamp>
+			<format pattern="MM/dd/yyyy hh:mm aa" offset="-2" unit="day" property="jarFilter" />
+		</tstamp>
+
+
+		<ftp server="${ftp.site}" userid="${ftp.username}" password="${ftp.password}" remotedir="update" verbose="true">
 			<fileset dir=".">
 				<include name="site.xml" />
 				<include name="features/*.jar" />
 				<include name="plugins/*.jar" />
+				<date datetime="${jarFilter}" when="after" />
 			</fileset>
 		</ftp>
 	</target>
-	
+
 	<target name="SendToUpdate33Site">
 		<property name="unames.file" value="../mxunit/buildprops/unames.properties" />
 		<property file="${unames.file}" />
-		<ftp server="${ftp.site}" userid="${ftp.username}" password="${ftp.password}" remotedir="update33" verbose="true" >
+		<ftp server="${ftp.site}" userid="${ftp.username}" password="${ftp.password}" remotedir="update33" verbose="true">
 			<fileset dir=".">
 				<include name="site.xml" />
 				<include name="features/*.jar" />
